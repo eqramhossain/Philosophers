@@ -6,37 +6,42 @@
 #    By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 20:46:16 by ehossain          #+#    #+#              #
-#    Updated: 2025/06/14 13:11:35 by ehossain         ###   ########.fr        #
+#    Updated: 2025/06/15 12:33:36 by ehossain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
-MAIN = ./src/main.c
-SRC = ./src/ft_putstr.c \
-
-OBJ = ${SRC:.c=.o} 
+SRC = ./src/main.c \
+	./src/ft_putstr.c \
+	./src/ft_philo.c
+OBJ = ${SRC:.c=.o}
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3 -pthread
 INCLUDE = include
 MAKE = make --no-print-directory
 
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) -I$(INCLUDE) -o $(NAME) $(MAIN) $(OBJ)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@echo "$(GREEN)philo compiled$(END)"
 
-$(OBJ) : $(SRC)
-	$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $@
+%.o : %.c
+	@$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $@
 
 clean :
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
+	@echo "$(RED)removed objcet files$(END)"
 
-fclean :
-	$(MAKE) clean
-	rm -rf $(NAME)
+fclean : clean
+	@rm -rf $(NAME)
+	@echo "$(RED)removed philo$(END)"
 
-re :
-	$(MAKE) fclean
-	$(MAKE) all
+re : fclean all
 
-.PHONY : clean fclean re
+.PHONY : clean fclean re all
+
+# Define color variables
+RED    = \033[0;31m
+GREEN  = \033[0;32m
+END     = \033[0m
