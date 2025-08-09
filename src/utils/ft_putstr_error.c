@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_error.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/07 20:50:08 by ehossain          #+#    #+#             */
-/*   Updated: 2025/06/23 00:08:00 by ehossain         ###   ########.fr       */
+/*   Created: 2025/06/22 23:58:18 by ehossain          #+#    #+#             */
+/*   Updated: 2025/06/22 23:58:43 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char *av[])
+void	ft_putstr_error(char *str)
 {
-	(void)ac;
-	(void)av;
-	return (0);
+	int	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
 }

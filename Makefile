@@ -6,17 +6,20 @@
 #    By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 20:46:16 by ehossain          #+#    #+#              #
-#    Updated: 2025/06/15 12:33:36 by ehossain         ###   ########.fr        #
+#    Updated: 2025/06/23 00:14:32 by ehossain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 SRC = ./src/main.c \
-	./src/ft_putstr.c \
-	./src/ft_philo.c
+	./src/ft_philo.c \
+	./src/utils/ft_putstr.c \
+	./src/utils/ft_atoi.c \
+	./src/utils/ft_putstr_error.c \
+	./src/utils/ft_putnbr.c
 OBJ = ${SRC:.c=.o}
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 -pthread
+CFLAGS = -Wall -Wextra -Werror -pthread -g3
 INCLUDE = include
 MAKE = make --no-print-directory
 
