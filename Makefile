@@ -6,7 +6,7 @@
 #    By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 20:46:16 by ehossain          #+#    #+#              #
-#    Updated: 2025/06/23 00:14:32 by ehossain         ###   ########.fr        #
+#    Updated: 2025/08/11 23:52:17 by ehossain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC = ./src/main.c \
 	./src/utils/ft_atoi.c \
 	./src/utils/ft_putstr_error.c \
 	./src/utils/ft_putnbr.c
+
 OBJ = ${SRC:.c=.o}
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread -g3
