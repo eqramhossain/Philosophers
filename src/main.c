@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:50:08 by ehossain          #+#    #+#             */
-/*   Updated: 2025/08/28 20:04:39 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/08/29 09:59:07 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,18 @@ int	main(int ac, char *av[])
 	}
 	else
 		return (1);
+	ft_philo(&input);
 	return (0);
 }
 
+/**
+ * @brief
+ * this function store all the input from main in t_input variable
+ * in case of an error the program end without an error message
+ * @param input
+ * @param ac
+ * @param av
+ */
 static void	ft_init_t_input(t_input *input, int ac, char **av)
 {
 	input->nb_philo = ft_atoi(av[1]);
@@ -55,6 +64,11 @@ static void	ft_init_t_input(t_input *input, int ac, char **av)
 	}
 }
 
+/**
+ * @brief this funtion print the t_input variable
+ * @param input
+ * @param ac
+ */
 static void	ft_print_t_input(t_input *input, int ac)
 {
 	printf("nb_philo = %d\n", input->nb_philo);

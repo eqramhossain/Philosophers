@@ -6,15 +6,12 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:49:12 by ehossain          #+#    #+#             */
-/*   Updated: 2025/08/28 20:00:35 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/08/29 10:02:17 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
-
-# define ac_limit 5
-# define ac_limit_op 6
 
 # include <limits.h>
 # include <stdio.h>
@@ -39,7 +36,16 @@ typedef struct s_philo
 	t_input	input;
 }			t_philo;
 
-/*  ====================  UTILS  ====================  */
+/* ========================================================================== */
+/*                                PHILO                                       */
+/* ========================================================================== */
+
+void		ft_philo(t_input *input);
+
+/* ========================================================================== */
+/*                                UTILS                                       */
+/* ========================================================================== */
+
 void		ft_putchar(char c);
 void		ft_putstr(char *str);
 void		ft_putstr_error(char *str);
