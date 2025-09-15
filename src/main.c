@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:50:08 by ehossain          #+#    #+#             */
-/*   Updated: 2025/08/29 09:59:07 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/15 07:29:14 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,21 @@ int	main(int ac, char *av[])
  */
 static void	ft_init_t_input(t_input *input, int ac, char **av)
 {
-	input->nb_philo = ft_atoi(av[1]);
+	input->nb_philo = ft_atol(av[1]);
 	if (input->nb_philo < 1)
 		exit(1);
-	input->time_to_die = ft_atoi(av[2]);
+	input->time_to_die = ft_atol(av[2]);
 	if (input->time_to_die <= 0)
 		exit(1);
-	input->time_to_eat = ft_atoi(av[3]);
+	input->time_to_eat = ft_atol(av[3]);
 	if (input->time_to_eat <= 0)
 		exit(1);
-	input->time_to_sleep = ft_atoi(av[4]);
+	input->time_to_sleep = ft_atol(av[4]);
 	if (input->time_to_sleep <= 0)
 		exit(1);
 	if (ac == 6)
 	{
-		input->optional = ft_atoi(av[5]);
+		input->optional = ft_atol(av[5]);
 		if (input->optional <= 0)
 			exit(1);
 	}
@@ -71,10 +71,10 @@ static void	ft_init_t_input(t_input *input, int ac, char **av)
  */
 static void	ft_print_t_input(t_input *input, int ac)
 {
-	printf("nb_philo = %d\n", input->nb_philo);
-	printf("time_to_die = %d\n", input->time_to_die);
-	printf("time_to_eat = %d\n", input->time_to_eat);
-	printf("time_to_sleep = %d\n", input->time_to_sleep);
+	printf("nb_philo = %ld\n", input->nb_philo);
+	printf("time_to_die = %ld\n", input->time_to_die);
+	printf("time_to_eat = %ld\n", input->time_to_eat);
+	printf("time_to_sleep = %ld\n", input->time_to_sleep);
 	if (ac == 6)
-		printf("optional = %d\n", input->optional);
+		printf("optional = %ld\n", input->optional);
 }

@@ -13,9 +13,9 @@
       "src/main.o",
       "src/main.c"
     ],
-    "directory": "/home/ekram/42/philosophers",
-    "file": "/home/ekram/42/philosophers/src/main.c",
-    "output": "/home/ekram/42/philosophers/src/main.o"
+    "directory": "/home/ehossain/42/philo",
+    "file": "/home/ehossain/42/philo/src/main.c",
+    "output": "/home/ehossain/42/philo/src/main.o"
   },
   {
     "arguments": [
@@ -31,80 +31,8 @@
       "src/ft_philo.o",
       "src/ft_philo.c"
     ],
-    "directory": "/home/ekram/42/philosophers",
-    "file": "/home/ekram/42/philosophers/src/ft_philo.c",
-    "output": "/home/ekram/42/philosophers/src/ft_philo.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_putstr.o",
-      "src/utils/ft_putstr.c"
-    ],
-    "directory": "/home/ekram/42/philosophers",
-    "file": "/home/ekram/42/philosophers/src/utils/ft_putstr.c",
-    "output": "/home/ekram/42/philosophers/src/utils/ft_putstr.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_atoi.o",
-      "src/utils/ft_atoi.c"
-    ],
-    "directory": "/home/ekram/42/philosophers",
-    "file": "/home/ekram/42/philosophers/src/utils/ft_atoi.c",
-    "output": "/home/ekram/42/philosophers/src/utils/ft_atoi.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_putstr_error.o",
-      "src/utils/ft_putstr_error.c"
-    ],
-    "directory": "/home/ekram/42/philosophers",
-    "file": "/home/ekram/42/philosophers/src/utils/ft_putstr_error.c",
-    "output": "/home/ekram/42/philosophers/src/utils/ft_putstr_error.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_putnbr.o",
-      "src/utils/ft_putnbr.c"
-    ],
-    "directory": "/home/ekram/42/philosophers",
-    "file": "/home/ekram/42/philosophers/src/utils/ft_putnbr.c",
-    "output": "/home/ekram/42/philosophers/src/utils/ft_putnbr.o"
+    "directory": "/home/ehossain/42/philo",
+    "file": "/home/ehossain/42/philo/src/ft_philo.c",
+    "output": "/home/ehossain/42/philo/src/ft_philo.o"
   }
 ]

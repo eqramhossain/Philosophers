@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/21 23:14:46 by ehossain          #+#    #+#             */
-/*   Updated: 2025/06/21 23:45:01 by ehossain         ###   ########.fr       */
+/*   Created: 2025/09/15 04:13:39 by ehossain          #+#    #+#             */
+/*   Updated: 2025/09/15 07:20:16 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_atoi(char *str)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int		i;
-	long	nbr;
-	int		signe;
+	unsigned char	*ptr;
+	size_t			i;
 
 	i = 0;
-	nbr = 0;
-	signe = 1;
-	if (!str)
-		return (0);
-	if (str[i] == '-' || str[i] == '+')
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	while (i < nmemb)
 	{
-		if (str[i] == '-')
-			signe = -1;
+		ptr[i] = 0;
 		i++;
 	}
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = nbr * 10 + (str[i] - '0');
-		i++;
-	}
-	nbr = nbr * signe;
-	if (nbr > INT_MAX || nbr < INT_MIN)
-		return (0);
-	return ((int)nbr);
+	return (ptr);
 }
