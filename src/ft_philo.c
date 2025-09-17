@@ -6,41 +6,51 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 08:27:11 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/15 04:17:50 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/17 11:00:42 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	ft_t_philo_init(t_philo *philo, t_input *input);
-static void	ft_create_thread(t_philo *philo);
+void	ft_create_thread(t_data *data);
+void	*ft_routine(void *data);
 
-void	ft_philo(t_input *input)
+void	ft_philo(t_data *data)
 {
-	t_philo	philo;
-
-	ft_t_philo_init(&philo, input);
-	ft_create_thread(&philo);
-	return ;
+	data->philo = ft_calloc(data->input->nb_philo, sizeof(t_philo));
+	ft_create_thread(data);
 }
 
-static void	ft_t_philo_init(t_philo *philo, t_input *input)
-{
-	philo->input = input;
-	philo->threads = ft_calloc(philo->input->nb_philo, sizeof(pthread_t));
-	if (!philo->threads)
-	{
-		ft_putstr_error("Malloc Failed");
-		exit(1);
-	}
-}
-
-static void	ft_create_thread(t_philo *philo)
+void	ft_create_thread(t_data *data)
 {
 	int	i;
 
 	i = 0;
-	while (i != philo->input->nb_philo)
+	pthread_mutex_init(&data->write_mutex, NULL);
+	while (i != data->input->nb_philo)
 	{
+		pthread_create(&data->philo[i].thread, NULL, &ft_routine, (void *)data);
+		i++;
 	}
+	i = 0;
+	while (i != data->input->nb_philo)
+	{
+		pthread_join(data->philo[i].thread, NULL);
+		i++;
+	}
+	pthread_mutex_destroy(&data->write_mutex);
+}
+
+void	*ft_routine(void *data)
+{
+	t_data		*tmp_data;
+	static int	i = 0;
+
+	tmp_data = (t_data *)data;
+	pthread_mutex_lock(&tmp_data->write_mutex);
+	tmp_data->philo->id = i;
+	printf("hello from thread %d\n", tmp_data->philo->id);
+	i++;
+	pthread_mutex_unlock(&tmp_data->write_mutex);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:50:08 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/15 07:29:14 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/17 09:55:05 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	ft_print_t_input(t_input *input, int ac);
 int	main(int ac, char *av[])
 {
 	t_input	input;
+	t_data	data;
 
 	if (ac == 5 || ac == 6)
 	{
@@ -25,9 +26,10 @@ int	main(int ac, char *av[])
 		ft_print_t_input(&input, ac);
 	}
 	else
-		return (1);
-	ft_philo(&input);
-	return (0);
+		return (return_error);
+	data.input = &input;
+	ft_philo(&data);
+	return (return_success);
 }
 
 /**
@@ -40,7 +42,7 @@ int	main(int ac, char *av[])
  */
 static void	ft_init_t_input(t_input *input, int ac, char **av)
 {
-	input->nb_philo = ft_atol(av[1]);
+	input->nb_philo = ft_atoi(av[1]);
 	if (input->nb_philo < 1)
 		exit(1);
 	input->time_to_die = ft_atol(av[2]);
@@ -71,7 +73,7 @@ static void	ft_init_t_input(t_input *input, int ac, char **av)
  */
 static void	ft_print_t_input(t_input *input, int ac)
 {
-	printf("nb_philo = %ld\n", input->nb_philo);
+	printf("nb_philo = %d\n", input->nb_philo);
 	printf("time_to_die = %ld\n", input->time_to_die);
 	printf("time_to_eat = %ld\n", input->time_to_eat);
 	printf("time_to_sleep = %ld\n", input->time_to_sleep);

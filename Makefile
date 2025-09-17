@@ -6,7 +6,7 @@
 #    By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 20:46:16 by ehossain          #+#    #+#              #
-#    Updated: 2025/09/15 10:00:45 by ehossain         ###   ########.fr        #
+#    Updated: 2025/09/17 09:11:40 by ehossain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,12 @@ NAME = philo
 SRC = ./src/main.c \
 	./src/ft_philo.c \
 	./src/utils/ft_putstr.c \
+	./src/utils/ft_calloc.c \
 	./src/utils/ft_atol.c \
+	./src/utils/ft_atoi.c \
 	./src/utils/ft_putstr_error.c \
 	./src/utils/ft_putnbr.c \
-	./src/utils/ft_even.c \
+	./src/utils/ft_usleep.c \
 
 OBJ = ${SRC:.c=.o}
 CC = cc
