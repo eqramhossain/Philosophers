@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_usleep.c                                        :+:      :+:    :+:   */
+/*   ft_get_curr_time.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 04:31:40 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/18 12:23:55 by ehossain         ###   ########.fr       */
+/*   Created: 2025/09/18 12:16:57 by ehossain          #+#    #+#             */
+/*   Updated: 2025/09/18 12:18:12 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_usleep(time_t miliseconds)
+time_t	ft_get_current_time(void)
 {
-	time_t	start_time;
+	struct timeval	s_time;
+	time_t			curr_time;
 
-	start_time = ft_get_current_time();
-	if (start_time == 1)
-		return (return_error);
-	while ((ft_get_current_time() - start_time) < miliseconds)
+	if (gettimeofday(&s_time, NULL) == -1)
 	{
-		if (usleep(500) == -1)
-		{
-			ft_putstr_error("usleep error\n");
-			return (return_error);
-		}
+		ft_putstr_error("gettimeofday error\n");
+		return (return_error);
 	}
-	return (return_success);
+	curr_time = ((s_time.tv_sec * 1000) + (s_time.tv_usec / 1000));
+	return (curr_time);
 }

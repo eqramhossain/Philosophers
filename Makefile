@@ -6,13 +6,17 @@
 #    By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 20:46:16 by ehossain          #+#    #+#              #
-#    Updated: 2025/09/17 09:11:40 by ehossain         ###   ########.fr        #
+#    Updated: 2025/09/18 12:29:07 by ehossain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 SRC = ./src/main.c \
 	./src/ft_philo.c \
+	./src/ft_init_t_input.c \
+	./src/ft_init_t_data.c \
+	./src/ft_monitor.c \
+	./src/utils/ft_get_curr_time.c \
 	./src/utils/ft_putstr.c \
 	./src/utils/ft_calloc.c \
 	./src/utils/ft_atol.c \

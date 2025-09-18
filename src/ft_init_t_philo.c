@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_usleep.c                                        :+:      :+:    :+:   */
+/*   ft_init_t_philo.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 04:31:40 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/18 12:23:55 by ehossain         ###   ########.fr       */
+/*   Created: 2025/09/18 12:38:52 by ehossain          #+#    #+#             */
+/*   Updated: 2025/09/18 13:22:34 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_usleep(time_t miliseconds)
+int	ft_init_t_philo(t_philo *philo, t_data *data)
 {
-	time_t	start_time;
+	int	id;
 
-	start_time = ft_get_current_time();
-	if (start_time == 1)
-		return (return_error);
-	while ((ft_get_current_time() - start_time) < miliseconds)
+	id = 0;
+	while (id != data->input.nb_philo)
 	{
-		if (usleep(500) == -1)
-		{
-			ft_putstr_error("usleep error\n");
-			return (return_error);
-		}
+		philo->id = id;
+		pthread_create(philo->thread, NULL, &ft_routine, NULL);
+		id++;
 	}
-	return (return_success);
 }

@@ -34,5 +34,131 @@
     "directory": "/home/ehossain/42/philo",
     "file": "/home/ehossain/42/philo/src/ft_philo.c",
     "output": "/home/ehossain/42/philo/src/ft_philo.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-g3",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "src/utils/ft_putstr.o",
+      "src/utils/ft_putstr.c"
+    ],
+    "directory": "/home/ehossain/42/philo",
+    "file": "/home/ehossain/42/philo/src/utils/ft_putstr.c",
+    "output": "/home/ehossain/42/philo/src/utils/ft_putstr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-g3",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "src/utils/ft_calloc.o",
+      "src/utils/ft_calloc.c"
+    ],
+    "directory": "/home/ehossain/42/philo",
+    "file": "/home/ehossain/42/philo/src/utils/ft_calloc.c",
+    "output": "/home/ehossain/42/philo/src/utils/ft_calloc.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-g3",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "src/utils/ft_atol.o",
+      "src/utils/ft_atol.c"
+    ],
+    "directory": "/home/ehossain/42/philo",
+    "file": "/home/ehossain/42/philo/src/utils/ft_atol.c",
+    "output": "/home/ehossain/42/philo/src/utils/ft_atol.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-g3",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "src/utils/ft_atoi.o",
+      "src/utils/ft_atoi.c"
+    ],
+    "directory": "/home/ehossain/42/philo",
+    "file": "/home/ehossain/42/philo/src/utils/ft_atoi.c",
+    "output": "/home/ehossain/42/philo/src/utils/ft_atoi.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-g3",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "src/utils/ft_putstr_error.o",
+      "src/utils/ft_putstr_error.c"
+    ],
+    "directory": "/home/ehossain/42/philo",
+    "file": "/home/ehossain/42/philo/src/utils/ft_putstr_error.c",
+    "output": "/home/ehossain/42/philo/src/utils/ft_putstr_error.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-g3",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "src/utils/ft_putnbr.o",
+      "src/utils/ft_putnbr.c"
+    ],
+    "directory": "/home/ehossain/42/philo",
+    "file": "/home/ehossain/42/philo/src/utils/ft_putnbr.c",
+    "output": "/home/ehossain/42/philo/src/utils/ft_putnbr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-g3",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "src/utils/ft_usleep.o",
+      "src/utils/ft_usleep.c"
+    ],
+    "directory": "/home/ehossain/42/philo",
+    "file": "/home/ehossain/42/philo/src/utils/ft_usleep.c",
+    "output": "/home/ehossain/42/philo/src/utils/ft_usleep.o"
   }
 ]

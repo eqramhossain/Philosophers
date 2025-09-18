@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_usleep.c                                        :+:      :+:    :+:   */
+/*   ft_monitor.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 04:31:40 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/18 12:23:55 by ehossain         ###   ########.fr       */
+/*   Created: 2025/09/18 12:26:50 by ehossain          #+#    #+#             */
+/*   Updated: 2025/09/18 12:27:58 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_usleep(time_t miliseconds)
+void	*ft_monitor(void *data)
 {
-	time_t	start_time;
-
-	start_time = ft_get_current_time();
-	if (start_time == 1)
-		return (return_error);
-	while ((ft_get_current_time() - start_time) < miliseconds)
-	{
-		if (usleep(500) == -1)
-		{
-			ft_putstr_error("usleep error\n");
-			return (return_error);
-		}
-	}
-	return (return_success);
+	(void)data;
+	ft_putstr("hello form thread");
+	return (NULL);
 }
