@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:26:50 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/18 12:27:58 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/21 11:33:16 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 void	*ft_monitor(void *data)
 {
-	(void)data;
-	ft_putstr("hello form thread");
+	t_philo	*tmp;
+
+	tmp = (t_philo *)data;
+	while (1)
+	{
+		if (ft_is_simulation_end(tmp) == true || ft_all_ate_enough(tmp) == true)
+			break ;
+	}
 	return (NULL);
 }

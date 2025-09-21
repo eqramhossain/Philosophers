@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:50:08 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/18 12:43:48 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/21 11:44:36 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,30 @@
 
 int	main(int ac, char *av[])
 {
-	t_input	input;
 	t_data	data;
 	t_philo	*philo;
 
 	if (ac == 5 || ac == 6)
 	{
-		ft_init_t_input(&input, ac, av);
-		ft_print_t_input(&input, ac);
+		ft_init_t_input(&data.input, ac, av);
+		ft_print_t_input(&data.input, ac);
 	}
 	else
-		return (return_error);
-	data.input = input;
-	ft_init_t_data(&data);
-	philo = ft_calloc(data.input.nb_philo, sizeof(t_philo));
-	ft_init_t_philo(philo, &data);
-	return (return_success);
+		return (ERROR);
+	if (ft_init_t_data(&data) != SUCCESS)
+		return (ERROR);
+	data.nb_philo = data.input.nb_philo;
+	philo = malloc((sizeof(t_philo) * data.input.nb_philo));
+	if (!philo)
+	{
+		ft_destroy_free_mutexs(&data);
+		exit(EXIT_FAILURE);
+	}
+	ft_init_all_philo(&data, philo);
+	ft_create_monitor_thread(&data);
+	ft_create_philo_thread(philo);
+	ft_destroy_free_mutexs(&data);
+	return (SUCCESS);
 }
 
 /**

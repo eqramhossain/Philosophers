@@ -6,34 +6,34 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 07:33:50 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/17 07:41:25 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/20 12:19:34 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_atoi(char *nptr)
+int	ft_atoi(char *str)
 {
-	int	i;
-	int	result;
-	int	signe;
+	int		i;
+	long	result;
+	int		signe;
 
 	i = 0;
 	result = 0;
 	signe = 1;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (nptr[i] == '-')
-		{
-			signe = signe * -1;
-		}
+		if (str[i] == '-')
+			ft_error_exit("Error: negative number are forbidden\n");
 		i++;
 	}
-	while (nptr[i] != '\0' && nptr[i] >= '0' && nptr[i] <= '9')
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
-		result = result * 10 + (nptr[i] - '0');
+		if (result * 10 + (str[i] - '0') >= INT_MAX)
+			ft_error_exit("Error: integer value exceed the INT_MAX\n");
+		result = result * 10 + (str[i] - '0');
 		i++;
 	}
 	return (result * signe);

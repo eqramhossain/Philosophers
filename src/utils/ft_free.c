@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/14 12:33:31 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/20 12:15:31 by ehossain         ###   ########.fr       */
+/*   Created: 2025/09/20 12:39:06 by ehossain          #+#    #+#             */
+/*   Updated: 2025/09/20 14:54:43 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_putstr(char *str)
+void	ft_free(void **content)
 {
-	int	i;
-
-	i = 0;
-	if (!str)
-		return ;
-	while (str[i])
+	if (content && *content)
 	{
-		write(1, &str[i], 1);
-		i++;
+		free(content);
+		content = NULL;
 	}
 }

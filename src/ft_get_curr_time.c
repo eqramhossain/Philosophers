@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_t_philo.c                                  :+:      :+:    :+:   */
+/*   ft_get_curr_time.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 12:38:52 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/18 13:22:34 by ehossain         ###   ########.fr       */
+/*   Created: 2025/09/18 12:16:57 by ehossain          #+#    #+#             */
+/*   Updated: 2025/09/20 15:21:06 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_init_t_philo(t_philo *philo, t_data *data)
+time_t	ft_get_current_time(void)
 {
-	int	id;
+	struct timeval	s_time;
+	time_t			curr_time;
 
-	id = 0;
-	while (id != data->input.nb_philo)
+	if (gettimeofday(&s_time, NULL) == -1)
 	{
-		philo->id = id;
-		pthread_create(philo->thread, NULL, &ft_routine, NULL);
-		id++;
+		ft_error("gettimeofday error\n");
+		return (ERROR);
 	}
+	curr_time = ((s_time.tv_sec * 1000) + (s_time.tv_usec / 1000));
+	return (curr_time);
 }

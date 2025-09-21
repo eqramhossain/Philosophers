@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_curr_time.c                                 :+:      :+:    :+:   */
+/*   ft_destroy_mutex.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 12:16:57 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/18 12:18:12 by ehossain         ###   ########.fr       */
+/*   Created: 2025/09/20 14:56:54 by ehossain          #+#    #+#             */
+/*   Updated: 2025/09/20 15:09:45 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-time_t	ft_get_current_time(void)
+void	ft_destroy_mutex(t_data *data)
 {
-	struct timeval	s_time;
-	time_t			curr_time;
+	int	i;
 
-	if (gettimeofday(&s_time, NULL) == -1)
+	i = 0;
+	pthread_mutex_destroy(&data->simulation_lock);
+	pthread_mutex_destroy(&data->meal_lock);
+	pthread_mutex_destroy(&data->write_lock);
+	while (i != data->input.nb_philo)
 	{
-		ft_putstr_error("gettimeofday error\n");
-		return (return_error);
+		pthread_mutex_destroy(&data->fork[i]);
+		i++;
 	}
-	curr_time = ((s_time.tv_sec * 1000) + (s_time.tv_usec / 1000));
-	return (curr_time);
 }

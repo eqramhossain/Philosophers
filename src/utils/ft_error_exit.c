@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_philo.c                                         :+:      :+:    :+:   */
+/*   ft_error_exit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/30 08:27:11 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/18 11:31:44 by ehossain         ###   ########.fr       */
+/*   Created: 2025/09/20 11:14:19 by ehossain          #+#    #+#             */
+/*   Updated: 2025/09/20 12:16:26 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_philo(t_data *data)
+void	ft_error_exit(char *str)
 {
-	(void)data;
+	int	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
+	exit(EXIT_FAILURE);
 }

@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_routine.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/14 12:33:31 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/20 12:15:31 by ehossain         ###   ########.fr       */
+/*   Created: 2025/09/20 18:53:25 by ehossain          #+#    #+#             */
+/*   Updated: 2025/09/20 23:00:57 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_putstr(char *str)
+void	*ft_routine(void *arg)
 {
-	int	i;
-
-	i = 0;
-	if (!str)
-		return ;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+	(void)arg;
+	return (NULL);
 }

@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_destroy_free_exit.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/14 12:33:31 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/20 12:15:31 by ehossain         ###   ########.fr       */
+/*   Created: 2025/09/20 15:11:28 by ehossain          #+#    #+#             */
+/*   Updated: 2025/09/21 11:27:39 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_putstr(char *str)
+void	ft_destroy_free_mutexs(t_data *data)
 {
-	int	i;
-
-	i = 0;
-	if (!str)
-		return ;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+	ft_destroy_mutex(data);
+	ft_free((void **)data->fork);
 }
