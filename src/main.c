@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:50:08 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/22 11:57:20 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/22 19:10:41 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ int	main(int ac, char *av[])
 	t_philo	*philo;
 
 	if (ac == 5 || ac == 6)
-	{
 		ft_init_t_input(&data.input, ac, av);
-		// ft_print_t_input(&data.input, ac);
-	}
 	else
 		return (ERROR);
 	if (ft_init_t_data(&data) != SUCCESS)
@@ -34,10 +31,8 @@ int	main(int ac, char *av[])
 		exit(EXIT_FAILURE);
 	}
 	ft_init_all_philo(&data, philo);
-	// ft_print_all_philo(philo, data.nb_philo);
-	ft_create_monitor_thread(philo);
-	// ft_create_philos_threads(philo);
-	// ft_destroy_free_mutexs(&data);
+	ft_create_threads(philo, data.nb_philo);
+	ft_destroy_free_mutexs(&data);
 	return (SUCCESS);
 }
 

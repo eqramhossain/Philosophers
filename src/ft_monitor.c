@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:26:50 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/22 13:34:33 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/22 19:29:45 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ bool	ft_if_all_philos_alive(t_philo *philo, int nb_philo)
 	{
 		if (ft_philo_alive(&philo[i]) == false)
 		{
-			ft_print_death(&philo[i]);
+			ft_print_message("died", &philo[i]);
 			pthread_mutex_lock(&philo->data->simulation_lock);
 			philo[i].data->simulation_end = true;
 			pthread_mutex_unlock(&philo->data->simulation_lock);

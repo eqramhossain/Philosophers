@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:49:12 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/22 13:21:53 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/22 20:39:21 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,16 +82,17 @@ void	*ft_monitor(void *data);
 void	ft_destroy_mutex(t_data *data);
 void	ft_destroy_free_mutexs(t_data *data);
 
-void	ft_create_monitor_thread(t_philo *philo);
+void	ft_create_threads(t_philo *philo, int nb_philo);
 bool	ft_if_all_philos_alive(t_philo *philo, int nb_philo);
 bool	ft_all_ate_enough(t_philo *philo, int nb_philo);
 
-int		ft_create_philos_threads(t_philo *philo);
-
 void	*ft_routine(void *philo);
+void	ft_eating(t_philo *philo);
+void	ft_sleeping(t_philo *philo);
+void	ft_thinking(t_philo *philo);
 bool	ft_is_simulation_end(t_philo *data);
 
-void	ft_print_death(t_philo *philo);
+void	ft_print_message(const char *msg, t_philo *philo);
 
 time_t	ft_get_current_time(void);
 int		ft_usleep(time_t miliseconds);
