@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:49:12 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/21 11:43:28 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/22 13:21:53 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_data
 	time_t start_time;               // the time when the program started
 	t_input input;                   // all the input variable
 	int nb_philo;                    // a copy of the nb_philo in t_input
-	bool simulation_end;             // flag to indicate simulation end
+	bool simulation_end;             // flag to indicate simulation end (1/0)
 	pthread_mutex_t simulation_lock; // mutex to protect simulation_end flag
 	pthread_mutex_t meal_lock;       // mutex to protect meal counting
 	pthread_mutex_t write_lock;      // mutex to protect console output
@@ -59,6 +59,7 @@ typedef struct s_philo
 	time_t start_time;       // the time when the program started
 	int id;                  // philosopher number (1 to nb_philo)
 	pthread_t philo;         // thread for this philosopher
+	bool eating;             // is the philosopher currently eating
 	int meals_eaten;         // how many times philosopher had eaten
 	time_t last_meal_time;   // timestamp of last meal start
 	pthread_mutex_t *r_fork; // pointer to his right fork
@@ -74,19 +75,21 @@ void	ft_print_t_input(t_input *input, int ac);
 int		ft_init_t_data(t_data *data);
 
 void	ft_init_all_philo(t_data *data, t_philo *philo);
+void	ft_print_all_philo(t_philo *philo, int nb_philo);
 
 void	*ft_monitor(void *data);
 
 void	ft_destroy_mutex(t_data *data);
 void	ft_destroy_free_mutexs(t_data *data);
 
-bool	ft_simulation_end(t_philo *philo);
-bool	ft_all_ate_enough(t_philo *philo);
+void	ft_create_monitor_thread(t_philo *philo);
+bool	ft_if_all_philos_alive(t_philo *philo, int nb_philo);
+bool	ft_all_ate_enough(t_philo *philo, int nb_philo);
 
-int		ft_create_monitor_thread(t_data *data);
-int		ft_create_philo_thread(t_philo *philo);
+int		ft_create_philos_threads(t_philo *philo);
 
 void	*ft_routine(void *philo);
+bool	ft_is_simulation_end(t_philo *data);
 
 void	ft_print_death(t_philo *philo);
 

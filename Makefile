@@ -6,28 +6,30 @@
 #    By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 20:46:16 by ehossain          #+#    #+#              #
-#    Updated: 2025/09/21 11:49:17 by ehossain         ###   ########.fr        #
+#    Updated: 2025/09/22 11:35:22 by ehossain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
-SRC = ./src/ft_destroy_free_exit.c \
-./src/ft_destroy_mutex.c \
-./src/ft_get_curr_time.c \
-./src/ft_init_all_philo.c \
-./src/ft_init_t_data.c \
-./src/ft_init_t_input.c \
-./src/ft_monitor.c \
-./src/ft_routine.c \
-./src/ft_usleep.c \
-./src/main.c \
-./src/utils/ft_atoi.c \
-./src/utils/ft_atol.c \
-./src/utils/ft_calloc.c \
-./src/utils/ft_error.c \
-./src/utils/ft_error_exit.c 
-./src/utils/ft_free.c \
-./src/utils/ft_putnbr.c \
+SRC = ./src/ft_destroy_free_mutexs.c \
+	  ./src/ft_destroy_mutex.c \
+	  ./src/ft_get_curr_time.c \
+	  ./src/ft_init_all_philo.c \
+	  ./src/ft_print_all_philo.c \
+	  ./src/ft_init_t_data.c \
+	  ./src/ft_init_t_input.c \
+	  ./src/ft_monitor.c \
+	  ./src/ft_routine.c \
+	  ./src/ft_usleep.c \
+	  ./src/main.c \
+	  ./src/ft_create_monitor_thread.c \
+	  ./src/ft_create_philos_threads.c \
+	  ./src/utils/ft_atoi.c \
+	  ./src/utils/ft_atol.c \
+	  ./src/utils/ft_calloc.c \
+	  ./src/utils/ft_error.c \
+	  ./src/utils/ft_error_exit.c \
+	  ./src/utils/ft_free.c \
 
 OBJ = ${SRC:.c=.o}
 CC = cc

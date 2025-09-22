@@ -10,12 +10,12 @@
       "-Iinclude",
       "-c",
       "-o",
-      "src/main.o",
-      "src/main.c"
+      "src/ft_destroy_free_exit.o",
+      "src/ft_destroy_free_exit.c"
     ],
     "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/main.c",
-    "output": "/home/ekram/42/philo/src/main.o"
+    "file": "/home/ekram/42/philo/src/ft_destroy_free_exit.c",
+    "output": "/home/ekram/42/philo/src/ft_destroy_free_exit.o"
   },
   {
     "arguments": [
@@ -28,12 +28,12 @@
       "-Iinclude",
       "-c",
       "-o",
-      "src/ft_philo.o",
-      "src/ft_philo.c"
+      "src/ft_destroy_mutex.o",
+      "src/ft_destroy_mutex.c"
     ],
     "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/ft_philo.c",
-    "output": "/home/ekram/42/philo/src/ft_philo.o"
+    "file": "/home/ekram/42/philo/src/ft_destroy_mutex.c",
+    "output": "/home/ekram/42/philo/src/ft_destroy_mutex.o"
   },
   {
     "arguments": [
@@ -46,12 +46,30 @@
       "-Iinclude",
       "-c",
       "-o",
-      "src/ft_init_t_input.o",
-      "src/ft_init_t_input.c"
+      "src/ft_get_curr_time.o",
+      "src/ft_get_curr_time.c"
     ],
     "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/ft_init_t_input.c",
-    "output": "/home/ekram/42/philo/src/ft_init_t_input.o"
+    "file": "/home/ekram/42/philo/src/ft_get_curr_time.c",
+    "output": "/home/ekram/42/philo/src/ft_get_curr_time.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pthread",
+      "-g3",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "src/ft_init_all_philo.o",
+      "src/ft_init_all_philo.c"
+    ],
+    "directory": "/home/ekram/42/philo",
+    "file": "/home/ekram/42/philo/src/ft_init_all_philo.c",
+    "output": "/home/ekram/42/philo/src/ft_init_all_philo.o"
   },
   {
     "arguments": [
@@ -82,12 +100,12 @@
       "-Iinclude",
       "-c",
       "-o",
-      "src/ft_init_t_philo.o",
-      "src/ft_init_t_philo.c"
+      "src/ft_init_t_input.o",
+      "src/ft_init_t_input.c"
     ],
     "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/ft_init_t_philo.c",
-    "output": "/home/ekram/42/philo/src/ft_init_t_philo.o"
+    "file": "/home/ekram/42/philo/src/ft_init_t_input.c",
+    "output": "/home/ekram/42/philo/src/ft_init_t_input.o"
   },
   {
     "arguments": [
@@ -106,167 +124,5 @@
     "directory": "/home/ekram/42/philo",
     "file": "/home/ekram/42/philo/src/ft_monitor.c",
     "output": "/home/ekram/42/philo/src/ft_monitor.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_get_curr_time.o",
-      "src/utils/ft_get_curr_time.c"
-    ],
-    "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/utils/ft_get_curr_time.c",
-    "output": "/home/ekram/42/philo/src/utils/ft_get_curr_time.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_putstr.o",
-      "src/utils/ft_putstr.c"
-    ],
-    "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/utils/ft_putstr.c",
-    "output": "/home/ekram/42/philo/src/utils/ft_putstr.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_calloc.o",
-      "src/utils/ft_calloc.c"
-    ],
-    "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/utils/ft_calloc.c",
-    "output": "/home/ekram/42/philo/src/utils/ft_calloc.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_atol.o",
-      "src/utils/ft_atol.c"
-    ],
-    "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/utils/ft_atol.c",
-    "output": "/home/ekram/42/philo/src/utils/ft_atol.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_atoi.o",
-      "src/utils/ft_atoi.c"
-    ],
-    "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/utils/ft_atoi.c",
-    "output": "/home/ekram/42/philo/src/utils/ft_atoi.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_error.o",
-      "src/utils/ft_error.c"
-    ],
-    "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/utils/ft_error.c",
-    "output": "/home/ekram/42/philo/src/utils/ft_error.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_error_exit.o",
-      "src/utils/ft_error_exit.c"
-    ],
-    "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/utils/ft_error_exit.c",
-    "output": "/home/ekram/42/philo/src/utils/ft_error_exit.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_putnbr.o",
-      "src/utils/ft_putnbr.c"
-    ],
-    "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/utils/ft_putnbr.c",
-    "output": "/home/ekram/42/philo/src/utils/ft_putnbr.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pthread",
-      "-g3",
-      "-Iinclude",
-      "-c",
-      "-o",
-      "src/utils/ft_usleep.o",
-      "src/utils/ft_usleep.c"
-    ],
-    "directory": "/home/ekram/42/philo",
-    "file": "/home/ekram/42/philo/src/utils/ft_usleep.c",
-    "output": "/home/ekram/42/philo/src/utils/ft_usleep.o"
   }
 ]
