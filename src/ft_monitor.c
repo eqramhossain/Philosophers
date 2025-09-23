@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:26:50 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/22 19:29:45 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/23 09:42:01 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ bool	ft_all_ate_enough(t_philo *philo, int nb_philo)
 	int		i;
 	bool	all_ate_enough;
 
-	if (philo->meals_eaten == -1)
+	if (philo->data->input.meals_required == -1)
 		return (false);
 	i = 0;
 	all_ate_enough = false;
@@ -75,9 +75,7 @@ bool	ft_all_ate_enough(t_philo *philo, int nb_philo)
 	{
 		pthread_mutex_lock(&philo->data->meal_lock);
 		if (philo[i].meals_eaten >= philo[i].data->input.meals_required)
-		{
 			all_ate_enough = true;
-		}
 		else
 			all_ate_enough = false;
 		pthread_mutex_unlock(&philo->data->meal_lock);

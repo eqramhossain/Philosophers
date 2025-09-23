@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 08:27:11 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/22 13:30:36 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/23 09:40:17 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void	ft_init_all_philo(t_data *data, t_philo *philo)
 static void	ft_init_philo(t_philo *philo)
 {
 	philo->start_time = ft_get_current_time();
-	philo->meals_eaten = -1;
-	philo->last_meal_time = -1;
+	philo->meals_eaten = 0;
+	philo->last_meal_time = ft_get_current_time();
+	philo->eating = false;
 	if (philo->id == 0)
 		philo->r_fork = &philo->data->fork[philo->data->nb_philo];
 	else

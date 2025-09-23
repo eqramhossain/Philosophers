@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 11:54:42 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/22 18:17:57 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/09/23 10:00:19 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_create_threads(t_philo *philo, int nb_philo)
 	while (i != nb_philo)
 	{
 		if (pthread_create(&philo[i].philo, NULL, &ft_routine,
-				(void *)philo) != 0)
+				(void *)&philo[i]) != 0)
 		{
 			ft_destroy_free_mutexs(philo->data);
 			exit(EXIT_FAILURE);
