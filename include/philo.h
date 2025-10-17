@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:49:12 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/22 20:39:21 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/10/17 18:18:34 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <sys/time.h>
 # include <unistd.h>
 
@@ -33,81 +34,81 @@
 
 typedef struct s_input
 {
-	int nb_philo;         // The number of philosophers
-	time_t time_to_die;   // The time a philosopher will die if does not eat
-	time_t time_to_eat;   // The time it takes to eat
-	time_t time_to_sleep; // The time it takes to sleep
-	int meals_required;   // number_of_times_each_philosopher_must_eat
-}		t_input;
+	int				nb_philo;
+	time_t			time_to_die;
+	time_t			time_to_eat;
+	time_t			time_to_sleep;
+	int				meals_required;
+}					t_input;
 
 typedef struct s_data
 {
-	time_t start_time;               // the time when the program started
-	t_input input;                   // all the input variable
-	int nb_philo;                    // a copy of the nb_philo in t_input
-	bool simulation_end;             // flag to indicate simulation end (1/0)
-	pthread_mutex_t simulation_lock; // mutex to protect simulation_end flag
-	pthread_mutex_t meal_lock;       // mutex to protect meal counting
-	pthread_mutex_t write_lock;      // mutex to protect console output
-	pthread_mutex_t *fork;           // array of mutex for all forks
-	pthread_t monitor;               // thread for death monitor
-}		t_data;
+	time_t			start_time;
+	t_input			*input;
+	int				nb_philo;
+	bool			simulation_end;
+	pthread_mutex_t	simulation_lock;
+	pthread_mutex_t	meal_lock;
+	pthread_mutex_t	write_lock;
+	pthread_mutex_t	*fork;
+	pthread_t		monitor;
+}					t_data;
 
 typedef struct s_philo
 {
-	t_data *data;            // all the shared data with main thread
-	time_t start_time;       // the time when the program started
-	int id;                  // philosopher number (1 to nb_philo)
-	pthread_t philo;         // thread for this philosopher
-	bool eating;             // is the philosopher currently eating
-	int meals_eaten;         // how many times philosopher had eaten
-	time_t last_meal_time;   // timestamp of last meal start
-	pthread_mutex_t *r_fork; // pointer to his right fork
-	pthread_mutex_t *l_fork; // pointer to his left fork
-}		t_philo;
+	t_data			*data;
+	time_t			start_time;
+	int				id;
+	pthread_t		philo;
+	bool			eating;
+	int				meals_eaten;
+	time_t			last_meal_time;
+	pthread_mutex_t	*r_fork;
+	pthread_mutex_t	*l_fork;
+}					t_philo;
 
 /* ========================================================================== */
 /*                                PHILO                                       */
 /* ========================================================================== */
 
-void	ft_init_t_input(t_input *input, int ac, char **av);
-void	ft_print_t_input(t_input *input, int ac);
-int		ft_init_t_data(t_data *data);
+void				ft_init_t_input(t_input *input, int ac, char **av);
+void				ft_print_t_input(t_input *input, int ac);
+int					ft_init_t_data(t_data *data, int ac, char **av);
 
-void	ft_init_all_philo(t_data *data, t_philo *philo);
-void	ft_print_all_philo(t_philo *philo, int nb_philo);
+void				ft_init_all_philo(t_data *data, t_philo *philo);
+void				ft_print_all_philo(t_philo *philo, int nb_philo);
 
-void	*ft_monitor(void *data);
+void				*ft_monitor(void *data);
 
-void	ft_destroy_mutex(t_data *data);
-void	ft_destroy_free_mutexs(t_data *data);
+void				ft_destroy_mutex(t_data *data);
+void				ft_destroy_free_mutexs(t_data *data, t_philo *philo);
 
-void	ft_create_threads(t_philo *philo, int nb_philo);
-bool	ft_if_all_philos_alive(t_philo *philo, int nb_philo);
-bool	ft_all_ate_enough(t_philo *philo, int nb_philo);
+void				ft_create_threads(t_philo *philo, int nb_philo);
+bool				ft_if_all_philos_alive(t_philo *philo, int nb_philo);
+bool				ft_all_ate_enough(t_philo *philo, int nb_philo);
 
-void	*ft_routine(void *philo);
-void	ft_eating(t_philo *philo);
-void	ft_sleeping(t_philo *philo);
-void	ft_thinking(t_philo *philo);
-bool	ft_is_simulation_end(t_philo *data);
+void				*ft_routine(void *philo);
+void				ft_eating(t_philo *philo);
+void				ft_sleeping(t_philo *philo);
+void				ft_thinking(t_philo *philo);
+bool				ft_is_simulation_end(t_philo *data);
 
-void	ft_print_message(const char *msg, t_philo *philo);
+void				ft_print_message(const char *msg, t_philo *philo);
 
-time_t	ft_get_current_time(void);
-int		ft_usleep(time_t miliseconds);
+time_t				ft_get_current_time(void);
+int					ft_usleep(time_t miliseconds);
 
 /* ========================================================================== */
 /*                                UTILS                                       */
 /* ========================================================================== */
 
-void	ft_putstr(char *str);
-void	ft_error(char *str);
-void	ft_error_exit(char *str);
-void	ft_putnbr(unsigned int nbr);
-void	*ft_calloc(size_t nmemb, size_t size);
-int		ft_atoi(char *str);
-long	ft_atol(char *str);
-void	ft_free(void **content);
+void				ft_putstr(char *str);
+void				ft_error(char *str);
+void				ft_error_exit(char *str);
+void				ft_putnbr(unsigned int nbr);
+void				*ft_calloc(size_t nmemb, size_t size);
+int					ft_atoi(char *str);
+long				ft_atol(char *str);
+void				ft_free(void **content);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 20:50:08 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/23 09:44:36 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/10/17 18:40:40 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,25 @@ int	main(int ac, char *av[])
 	t_philo	*philo;
 
 	if (ac == 5 || ac == 6)
-		ft_init_t_input(&data.input, ac, av);
+	{
+		if (ft_init_t_data(&data, ac, av) == ERROR)
+		{
+			ft_destroy_mutex(&data);
+			free(data.input);
+			free(data.fork);
+			return (ERROR);
+		}
+	}
 	else
 		return (ERROR);
-	if (ft_init_t_data(&data) != SUCCESS)
-		return (ERROR);
-	data.nb_philo = data.input.nb_philo;
-	philo = malloc((sizeof(t_philo) * data.input.nb_philo));
+	philo = ft_calloc(data.nb_philo, sizeof(t_philo));
 	if (!philo)
 	{
-		ft_destroy_free_mutexs(&data);
+		ft_destroy_mutex(&data);
 		exit(EXIT_FAILURE);
 	}
 	ft_init_all_philo(&data, philo);
 	ft_create_threads(philo, data.nb_philo);
-	ft_destroy_free_mutexs(&data);
+	ft_destroy_free_mutexs(&data, philo);
 	return (SUCCESS);
-}
-
-/**
- * @brief this funtion print the t_input variable
- * @param input
- * @param ac
- */
-void	ft_print_t_input(t_input *input, int ac)
-{
-	printf("nb_philo = %d\n", input->nb_philo);
-	printf("time_to_die = %ld\n", input->time_to_die);
-	printf("time_to_eat = %ld\n", input->time_to_eat);
-	printf("time_to_sleep = %ld\n", input->time_to_sleep);
-	if (ac == 6)
-		printf("meals_required = %d\n", input->meals_required);
 }

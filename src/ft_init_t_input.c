@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 11:46:59 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/20 12:17:26 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/10/17 17:53:26 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,19 @@ void	ft_init_t_input(t_input *input, int ac, char **av)
 		input->meals_required = ft_atol(av[5]);
 	else
 		input->meals_required = -1;
+}
+
+/**
+ * @brief this funtion print the t_input variable
+ * @param input
+ * @param ac
+ */
+void	ft_print_t_input(t_input *input, int ac)
+{
+	printf("nb_philo = %d\n", input->nb_philo);
+	printf("time_to_die = %ld\n", input->time_to_die);
+	printf("time_to_eat = %ld\n", input->time_to_eat);
+	printf("time_to_sleep = %ld\n", input->time_to_sleep);
+	if (ac == 6)
+		printf("meals_required = %d\n", input->meals_required);
 }

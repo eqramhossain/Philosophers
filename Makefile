@@ -6,7 +6,7 @@
 #    By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 20:46:16 by ehossain          #+#    #+#              #
-#    Updated: 2025/09/22 20:43:05 by ehossain         ###   ########.fr        #
+#    Updated: 2025/09/23 15:31:09 by ehossain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = ./src/ft_create_threads.c \
 	  ./src/utils/ft_atol.c \
 	  ./src/utils/ft_calloc.c \
 	  ./src/utils/ft_error.c \
+	  ./src/utils/ft_putstr.c \
 	  ./src/utils/ft_error_exit.c \
 	  ./src/utils/ft_free.c \
 

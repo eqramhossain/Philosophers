@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 11:54:42 by ehossain          #+#    #+#             */
-/*   Updated: 2025/09/23 10:00:19 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/10/17 17:30:59 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,32 @@ void	ft_create_threads(t_philo *philo, int nb_philo)
 
 	i = 0;
 	if (pthread_create(&philo->data->monitor, NULL, &ft_monitor,
-			(void *)philo) != 0)
+			&philo[0]) != 0)
 	{
-		ft_destroy_free_mutexs(philo->data);
-		exit(EXIT_FAILURE);
+		ft_destroy_mutex(philo->data);
+		ft_error_exit("error_creating_monitor_thread");
 	}
-	while (i != nb_philo)
+	while (i < nb_philo)
 	{
-		if (pthread_create(&philo[i].philo, NULL, &ft_routine,
-				(void *)&philo[i]) != 0)
+		if (pthread_create(&philo[i].philo, NULL, &ft_routine, &philo[i]) != 0)
 		{
-			ft_destroy_free_mutexs(philo->data);
-			exit(EXIT_FAILURE);
+			ft_destroy_mutex(philo->data);
+			ft_error_exit("error_creating_philosophers_threads");
 		}
 		i++;
 	}
-	if (pthread_join(philo->data->monitor, NULL) != 0)
+	if (pthread_join(philo[0].data->monitor, NULL) != 0)
 	{
-		ft_destroy_free_mutexs(philo->data);
-		exit(EXIT_FAILURE);
+		ft_destroy_mutex(philo->data);
+		ft_error_exit("error_join_monitor_thread");
 	}
 	i = 0;
-	while (i != nb_philo)
+	while (i < nb_philo)
 	{
 		if (pthread_join(philo[i].philo, NULL) != 0)
 		{
-			ft_destroy_free_mutexs(philo->data);
-			exit(EXIT_FAILURE);
+			ft_destroy_mutex(philo->data);
+			ft_error_exit("error_join_philosophers_threads");
 		}
 		i++;
 	}
